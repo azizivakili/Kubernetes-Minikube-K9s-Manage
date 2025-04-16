@@ -56,7 +56,7 @@ k8s-basic/
 * webapp.yaml [here](webapp.yaml)
 * mongo-secret.yaml [here](mongo-secret.yaml)
 
-## Step 5: Undrestanding how everything works? 
+### Undrestanding how everything works? 
 * MongoDB starts up:
   
   - Uses the secret (username & password) from mongo-secret.yaml
@@ -75,14 +75,43 @@ k8s-basic/
   
   - Exposes the web app on your browser at localhost:30100
 
-## Step 6: Check if Minikube cluster is running
+### Check if Minikube cluster is running
 ```
 azizi@azizi-lab:~$ kubectl cluster-info
 Kubernetes control plane is running at https://192.168.49.2:8443
 ```
-## Step 8: Apply Kubernetes Configurations
-* kubectl apply -f mongo.yaml
-* kubectl apply -f mongo-config.yaml
-* kubectl apply -f mongo-secret.yaml
-* kubectl apply -f webapp.yaml
+### Apply Kubernetes Configurations
+```
+ kubectl apply -f mongo.yaml
+ kubectl apply -f mongo-config.yaml
+ kubectl apply -f mongo-secret.yaml
+ kubectl apply -f webapp.yaml
+```
+### Check if everything runs correctly:
+```
+azizi@azizi-lab:~$ kubectl get all
+NAME                                     READY   STATUS    RESTARTS      AGE
+pod/mongo-deployment-7cccf8b6d8-4kbp6    1/1     Running   3 (72m ago)   4d10h
+pod/webapp-deployment-6bb4795f54-66m69   1/1     Running   3 (72m ago)   4d10h
 
+NAME                     TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+service/kubernetes       ClusterIP   10.96.0.1      <none>        443/TCP          5d20h
+service/mongo-service    ClusterIP   10.97.87.74    <none>        27017/TCP        4d10h
+service/webapp-service   NodePort    10.98.254.37   <none>        3000:30100/TCP   4d10h
+
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/mongo-deployment    1/1     1            1           4d10h
+deployment.apps/webapp-deployment   1/1     1            1           4d10h
+
+NAME                                           DESIRED   CURRENT   READY   AGE
+replicaset.apps/mongo-deployment-7cccf8b6d8    1         1         1       4d10h
+replicaset.apps/webapp-deployment-6bb4795f54   1         1         1       4d10h
+azizi@azizi-lab:~$ 
+azizi@azizi-lab:~$ minikube service webapp-service
+|-----------|----------------|-------------|---------------------------|
+| NAMESPACE |      NAME      | TARGET PORT |            URL            |
+|-----------|----------------|-------------|---------------------------|
+| default   | webapp-service |        3000 | http://192.168.49.2:30100 |
+|-----------|----------------|-------------|---------------------------|
+🎉  Opening service default/webapp-service in default browser...
+```
