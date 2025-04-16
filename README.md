@@ -51,5 +51,13 @@ k8s-basic/
 ├── mongo.yaml            ← runs MongoDB and makes it available inside the cluster
 └── webapp.yaml           ← runs the web app and makes it available from outside
 ```
-
+* mongo-config.yaml [here](mongo-config.yaml)
+  ```
+  apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-config
+data:
+  mongo-url: mongo-service
+  ```
 
