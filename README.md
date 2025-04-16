@@ -115,3 +115,7 @@ azizi@azizi-lab:~$ minikube service webapp-service
 |-----------|----------------|-------------|---------------------------|
 🎉  Opening service default/webapp-service in default browser...
 ```
+### Access the web app on:
+```
+ http://192.168.49.2:30100
+```
