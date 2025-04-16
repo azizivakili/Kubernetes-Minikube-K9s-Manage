@@ -39,7 +39,17 @@ azizi@azizi-lab:~$ minikube start --driver=docker
 🌟  Enabled addons: storage-provisioner, default-storageclass
 🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
 ```
+## Step 3: Install Kubectl
+```
+sudo apt install kubectl
+```
+## Step 4: Prepare kubernetes files as below:
+```
+k8s-basic/
+├── mongo-config.yaml     ← holds MongoDB URL (like "where to connect")
+├── mongo-secret.yaml     ← holds MongoDB username and password
+├── mongo.yaml            ← runs MongoDB and makes it available inside the cluster
+└── webapp.yaml           ← runs the web app and makes it available from outside
+```
 
 
-
-  
