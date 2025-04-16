@@ -139,3 +139,5 @@ azizi@azizi-lab:~$  rm k9s_linux_amd64.deb
 azizi@azizi-lab:~$  k9s
 ```
 ![](ks9.png)
+
+There are many options and contrl keys that we can monitor, configure and re-run our cluster pods. 
