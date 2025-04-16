@@ -25,6 +25,21 @@ Set the Driver and start Minikube:
 ```
 minikube start --driver=docker
 ```
+* **Out put:**
+```
+azizi@azizi-lab:~$ minikube start --driver=docker
+😄  minikube v1.35.0 on Ubuntu 22.04 (vbox/amd64)
+✨  Using the docker driver based on existing profile
+👍  Starting "minikube" primary control-plane node in "minikube" cluster
+🚜  Pulling base image v0.0.46 ...
+🔄  Restarting existing docker container for "minikube" ...
+🐳  Preparing Kubernetes v1.32.0 on Docker 27.4.1 ...
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+```
+
 
 
   
