@@ -6,7 +6,7 @@ https://minikube.sigs.k8s.io/docs/
 * K9S:
 https://k9scli.io/
 
-## Step1:
+## Step1: Install Minikube
 Install Minikube to run the kubernetes cluster and Pods on it:
 ```
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
