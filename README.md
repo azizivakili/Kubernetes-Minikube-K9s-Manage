@@ -115,6 +115,8 @@ azizi@azizi-lab:~$ minikube service webapp-service
 |-----------|----------------|-------------|---------------------------|
 🎉  Opening service default/webapp-service in default browser...
 ```
+
+![](kubectl-all.png)
 ### Access the web app on:
 ```
  http://192.168.49.2:30100
@@ -136,3 +138,4 @@ azizi@azizi-lab:~$  rm k9s_linux_amd64.deb
 ```
 azizi@azizi-lab:~$  k9s
 ```
+![](ks9.png)
