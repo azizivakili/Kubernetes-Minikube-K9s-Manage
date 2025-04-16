@@ -43,7 +43,7 @@ azizi@azizi-lab:~$ minikube start --driver=docker
 ```
 sudo apt install kubectl
 ```
-## Step 4: Prepare kubernetes files as below:
+## Step 4: Prepare kubernetes files as below
 ```
 k8s-basic/
 ├── mongo-config.yaml     ← holds MongoDB URL (like "where to connect")
@@ -55,3 +55,34 @@ k8s-basic/
 * mongo.yaml [here](mongo.yaml)
 * webapp.yaml [here](webapp.yaml)
 * mongo-secret.yaml [here](mongo-secret.yaml)
+
+## Step 5: Undrestanding how everything works? 
+* MongoDB starts up:
+  
+  - Uses the secret (username & password) from mongo-secret.yaml
+  
+  - Gets exposed inside the cluster via mongo-service
+
+* Web App starts up:
+  
+  - Reads the MongoDB username and password from the same secret
+  
+  - Reads the MongoDB address from the config map
+  
+  - Connects to MongoDB using those values
+  
+* Web App Service (NodePort):
+  
+  - Exposes the web app on your browser at localhost:30100
+
+## Step 6: Check if Minikube cluster is running
+```
+azizi@azizi-lab:~$ kubectl cluster-info
+Kubernetes control plane is running at https://192.168.49.2:8443
+```
+## Step 8: Apply Kubernetes Configurations
+* kubectl apply -f mongo.yaml
+* kubectl apply -f mongo-config.yaml
+* kubectl apply -f mongo-secret.yaml
+* kubectl apply -f webapp.yaml
+
