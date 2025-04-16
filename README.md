@@ -119,3 +119,20 @@ azizi@azizi-lab:~$ minikube service webapp-service
 ```
  http://192.168.49.2:30100
 ```
+## Step 5: K9S
+[K9s](https://k9scli.io/) is a terminal based UI to interact with your Kubernetes clusters. 
+
+### Install k9s
+```
+azizi@azizi-lab:~$  wget https://github.com/derailed/k9s/releases/download/v0.32.5/k9s_linux_amd64.deb
+```
+```
+azizi@azizi-lab:~$  sudo apt install ./k9s_linux_amd64.deb
+```
+```
+azizi@azizi-lab:~$  rm k9s_linux_amd64.deb
+```
+### Run ks9
+```
+azizi@azizi-lab:~$  k9s
+```
