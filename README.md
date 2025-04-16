@@ -52,12 +52,6 @@ k8s-basic/
 └── webapp.yaml           ← runs the web app and makes it available from outside
 ```
 * mongo-config.yaml [here](mongo-config.yaml)
-  ```
-  apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: mongo-config
-data:
-  mongo-url: mongo-service
-  ```
-
+* mongo.yaml [here](mongo.yaml)
+* webapp.yaml [here](webapp.yaml)
+* mongo-secret.yaml [here](mongo-secret.yaml)
